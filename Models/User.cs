@@ -7,7 +7,6 @@
         public string UserEmail { get; set; }
         public string UserPassword { get; set; }
         public string Bio { get; set; }
-
         public ICollection<Character> Characters { get; set; }
     }
 }
