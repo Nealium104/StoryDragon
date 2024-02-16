@@ -39,6 +39,10 @@ namespace StoryDragon.Data
                 .HasMany(p => p.Characters)
                 .WithMany(c => c.Posts)
                 .UsingEntity(j => j.ToTable("PostCharacters"));
+            modelBuilder.Entity<Post>()
+    .HasMany(p => p.Characters)
+    .WithMany(c => c.Posts)
+    .UsingEntity(j => j.ToTable("PostCharacters"));
         }
     }
 }
