@@ -1,7 +1,5 @@
 ﻿using StoryDragon.Models;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Hosting;
-using System.Reflection.Metadata;
 
 namespace StoryDragon.Data
 {
@@ -32,17 +30,25 @@ namespace StoryDragon.Data
                 .WithMany(c => c.Stories)
                 .UsingEntity(j => j.ToTable("StoryCharacters"));
             modelBuilder.Entity<Post>()
-                .HasMany(p => p.Characters)
+                .HasMany(p => p.Stories)
                 .WithMany(s => s.Posts)
                 .UsingEntity(j => j.ToTable("PostStories"));
             modelBuilder.Entity<Post>()
                 .HasMany(p => p.Characters)
                 .WithMany(c => c.Posts)
                 .UsingEntity(j => j.ToTable("PostCharacters"));
-            modelBuilder.Entity<Post>()
-    .HasMany(p => p.Characters)
-    .WithMany(c => c.Posts)
-    .UsingEntity(j => j.ToTable("PostCharacters"));
+            modelBuilder.Entity<User>()
+                .HasMany(u => u.Posts)
+                .WithOne()
+                .HasForeignKey(p => p.UserId);
+            modelBuilder.Entity<User>()
+                .HasMany(u => u.Characters)
+                .WithOne()
+                .HasForeignKey(c => c.UserId);
+            modelBuilder.Entity<User>()
+                .HasMany(u => u.Stories)
+                .WithOne()
+                .HasForeignKey(s => s.UserId);
         }
     }
 }
