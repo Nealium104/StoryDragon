@@ -43,7 +43,7 @@ namespace StoryDragon.Data
                 .HasForeignKey(p => p.UserId);
             modelBuilder.Entity<User>()
                 .HasMany(u => u.Characters)
-                .WithOne()
+                .WithOne(c => c.User)
                 .HasForeignKey(c => c.UserId);
             modelBuilder.Entity<User>()
                 .HasMany(u => u.Stories)
