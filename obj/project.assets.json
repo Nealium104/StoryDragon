@@ -7509,6 +7509,7 @@
   "projectFileDependencyGroups": {
     "net8.0": [
       "Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter >= 8.0.2",
+      "Microsoft.EntityFrameworkCore.Design >= 8.0.2",
       "Microsoft.EntityFrameworkCore.Sqlite >= 8.0.1",
       "Microsoft.EntityFrameworkCore.Tools >= 8.0.2",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 8.0.1",
@@ -7553,9 +7554,6 @@
         "warnAsError": [
           "NU1605"
         ]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "default"
       }
     },
     "frameworks": {
@@ -7563,6 +7561,12 @@
         "targetAlias": "net8.0",
         "dependencies": {
           "Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter": {
+            "target": "Package",
+            "version": "[8.0.2, )"
+          },
+          "Microsoft.EntityFrameworkCore.Design": {
+            "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+            "suppressParent": "All",
             "target": "Package",
             "version": "[8.0.2, )"
           },
@@ -7604,7 +7608,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.102/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

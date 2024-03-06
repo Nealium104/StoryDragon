@@ -1,5 +1,6 @@
-﻿using StoryDragon.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using StoryDragon.Models;
+using System;
 
 namespace StoryDragon.Data
 {
@@ -10,18 +11,9 @@ namespace StoryDragon.Data
         public DbSet<Post> Posts { get; set; }
         public DbSet<User> Users { get; set; }
 
-        public string DbPath { get; }
-
-        public StoryDragonContext() 
+        public StoryDragonContext(DbContextOptions<StoryDragonContext> options) : base(options)
         {
-            var folder = Environment.SpecialFolder.LocalApplicationData;
-            var path = Environment.GetFolderPath(folder);
-            DbPath = System.IO.Path.Join(path, "storyDragon.db");
         }
-
-        // The following configures EF to createa Sqlite database file in the special "local" folder for your platform
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-            => optionsBuilder.UseSqlite($"Data Source={DbPath}");
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

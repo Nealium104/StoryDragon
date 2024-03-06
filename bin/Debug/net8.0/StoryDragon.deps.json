@@ -9,6 +9,7 @@
       "StoryDragon/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter": "8.0.2",
+          "Microsoft.EntityFrameworkCore.Design": "8.0.2",
           "Microsoft.EntityFrameworkCore.Sqlite": "8.0.1",
           "Microsoft.EntityFrameworkCore.Tools": "8.0.2",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "8.0.1",

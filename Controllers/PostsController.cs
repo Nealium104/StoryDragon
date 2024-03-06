@@ -26,9 +26,9 @@ namespace StoryDragon.Controllers
 
         // GET: api/Posts/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Post>> GetPost(Guid id)
+        public async Task<ActionResult<Post>> GetPost(Guid PostId)
         {
-            var post = await _context.Posts.FindAsync(id);
+            var post = await _context.Posts.FindAsync(PostId);
 
             if (post == null)
             {
