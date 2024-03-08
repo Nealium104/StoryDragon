@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("StoryDragon")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e939197bab12e4946096b2aad86a7337699fb40e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8266bbe3c4e7d91bb7337bb02f49ac4833054e26")]
 [assembly: System.Reflection.AssemblyProductAttribute("StoryDragon")]
 [assembly: System.Reflection.AssemblyTitleAttribute("StoryDragon")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using StoryDragon.Data;
 using StoryDragon.Models;
@@ -18,6 +19,7 @@ namespace StoryDragon.Controllers
         }
 
         // GET: api/Posts
+        [EnableCors("AllowReactApp")]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Post>>> GetPosts()
         {
@@ -26,9 +28,9 @@ namespace StoryDragon.Controllers
 
         // GET: api/Posts/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Post>> GetPost(Guid PostId)
+        public async Task<ActionResult<Post>> GetPost(Guid id)
         {
-            var post = await _context.Posts.FindAsync(PostId);
+            var post = await _context.Posts.FindAsync(id);
 
             if (post == null)
             {
@@ -41,7 +43,7 @@ namespace StoryDragon.Controllers
         // PUT: api/Posts/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutPost(Guid id, Post post)
+        public async Task<IActionResult> PutPost(Guid id, [FromBody] Post post)
         {
             if (id != post.PostId)
             {
@@ -72,7 +74,7 @@ namespace StoryDragon.Controllers
         // POST: api/Posts
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Post>> PostPost(Post post)
+        public async Task<ActionResult<Post>> PostPost([FromBody]Post post)
         {
             _context.Posts.Add(post);
             await _context.SaveChangesAsync();

@@ -6,6 +6,7 @@ namespace StoryDragon.Models
     {
         public Guid PostId { get; set; } = Guid.NewGuid();
         public string PostText { get; set; }
+        public string Title { get; set; }
         public DateTime PostDate { get; set; }
         public int Likes { get; set; }
         public DateTime? EditDate { get; set; }
